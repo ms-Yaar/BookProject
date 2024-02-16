@@ -4,4 +4,6 @@
 
 <%= link_to 'Back', books_path %>
 
+<% if can? :destroy, @book %>
 <%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>

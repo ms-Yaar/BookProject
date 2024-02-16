@@ -6,7 +6,13 @@ class Ability
   def initialize(user)
     user ||= User.new 
     if user.admin?
-      can :manage, :all
+      can :read, :all
+      can :index, Book
+      cannot :destroy ,Book
+      cannot :update, Book
+    
+      can :show, Book
+      #cannot :destroy
       #can :read, Book
       #can :read, Book, category: { genre: 'admin' }
 
